@@ -43,5 +43,3 @@ match guessed_number:
     
 unique_number = generate_unique_4digit()  # variable for generated number
 
-def check_for_cows(generated_value, guessed_value):
-    if 
