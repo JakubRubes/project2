@@ -74,14 +74,11 @@ def guess_evaluation(bulls, cows, bull_string, cow_string):
     # The final "GGs, you have won!" is handled by the main game loop's final print.
 
 def game():
-    initial_game_text()
-    
+    initial_game_text()   
     # Generated number is consistently handled as a string
-    generated_number = generate_unique_4digit()
-    
+    generated_number = generate_unique_4digit()    
     guess_count = 0
     bulls = 0
-
     # Main Game Loop (continues until 4 bulls are achieved)
     while bulls < 4:    
         raw_guess = input("Enter your guess: ")     
@@ -97,6 +94,6 @@ def game():
         print("-----------------------------------------------")      
     # Final Win Message
     print(f"GGs, you have won! You cracked the code {generated_number} in {guess_count} guesses!")
-
+# To ensure that game does not run automatically if someone wants to import this file and run only random function.
 if __name__ == "__main__":
     game()
