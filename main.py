@@ -18,10 +18,9 @@ def initial_game_text():
     """)
 
 def generate_unique_4digit():
-    # Returns the unique 4-digit number as a string 
+    # Returns the unique 4-digit number that does not start with "0" as a string.
     first_digit = random.choice(range(1, 10))  # 1–9 only
-    # Adds 3 more unique numbers that are unique to first digit as well.
-    remaining_digits = random.sample([d for d in range(10) if d != first_digit], 3) 
+    remaining_digits = random.sample([d for d in range(10) if d != first_digit], 3) # 0-9 unique
     digits = [first_digit] + remaining_digits
     return ''.join(map(str, digits))
 
@@ -48,6 +47,7 @@ def has_unique_digits(number):
     return len(number_to_string) == len(set(number_to_string))
     
 def bulls_and_cows(guessed_number_str, generated_number_str):
+    # Count Bulls and Cows
     bulls = 0
     cows = 0  
     # Check for Bulls (correct digit and correct position)
@@ -62,7 +62,7 @@ def bulls_and_cows(guessed_number_str, generated_number_str):
     return (bulls, cows)
 
 def singular_or_plural(bulls, cows):
-    # Returns the correct plural/singular string for print
+    # Returns the correct plural/singular string for Bulls and Cows
     bull_string = "bull" if bulls == 1 else "bulls"
     cow_string = "cow" if cows == 1 else "cows"
     return (bull_string, cow_string)
@@ -74,12 +74,12 @@ def guess_evaluation(bulls, cows, bull_string, cow_string):
     # The final "GGs, you have won!" is handled by the main game loop's final print.
 
 def game():
+    # Main game body
     initial_game_text()   
-    # Generated number is consistently handled as a string
     generated_number = generate_unique_4digit()    
     guess_count = 0
     bulls = 0
-    # Main Game Loop (continues until 4 bulls are achieved)
+    # Main Game loop (continues until 4 bulls are achieved)
     while bulls < 4:    
         raw_guess = input("Enter your guess: ")     
         # Get and validate the guess
